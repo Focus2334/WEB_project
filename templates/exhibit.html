@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for item in exhibit%}
+<h1>{{item.title}}</h1>
+<div>
+    <img src="/static/img/{{ item.image }}" width="200" height="200"
+         alt="здесь должна была быть картинка, но не нашлась">
+</div>
+<div>
+    {{item.content}}
+</div>
+<div>
+    Дата написания - {{item.created_date}}
+</div>
+{% endfor %}
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.text.label }}<br>
+        {{ form.text(class="form-control", type="text") }}<br>
+        {% for error in form.text.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    <div>{{ message }}</div>
+</form>
+{% for item in comments%}
+<div class="col-md6 border rounded">
+    <h2>{{item.user.name}}</h2>
+    <div>
+        {{item.content}}
+    </div>
+    <div class="col-md6 border rounded">
+        Дата написания - {{item.created_date}}
+    </div>
+</div>
+<p></p>
+{% endfor %}
+{% endblock %}
