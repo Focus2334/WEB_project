@@ -1,7 +1,5 @@
-Flask 2.0.2
-Flask-Login 0.6.1
-Flask-WTF 1.0.1
-Jinja2 3.0.3
-SQLAlchemy 1.4.36
-SQLAlchemy-serializer 1.4.1
-Werkzeug 2.0.2
+pip install flask
+pip install flask-login
+pip install flask-wtf
+pip install sqlalchemy
+pip install SQLAlchemy-serializer
